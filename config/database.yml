@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: fivethreeone_production
-  username: fivethreeone
-  password: <%= ENV['FIVETHREEONE_DATABASE_PASSWORD'] %>
+  database: d292b765oik626
+  username: dhrxzdjikyzfhe
+  password: Lyv9nKMPskjpynwq-CMJPYlTl6
