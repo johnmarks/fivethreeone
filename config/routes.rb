@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :workouts
   resources :set_templates
   resources :five_three_one_set_templates, controller: 'set_templates', type: FiveThreeOneSetTemplate
