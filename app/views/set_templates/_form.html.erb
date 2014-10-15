@@ -39,7 +39,7 @@
   <div class="control-group">
     <%= f.label :type, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :type, :class => 'form-control' %>
+      <%= f.select(:type, options_for_select([['FiveThreeOneSetTemplate'], ['BasicSetTemplate']]), {},  {:class => 'form-control'})%>
     </div>
     <%= error_span(@set_template[:type]) %>
   </div>
