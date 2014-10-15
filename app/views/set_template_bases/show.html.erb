@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Exercise:</strong>
+  <%= @set_template_basis.exercise_id %>
+</p>
+
+<p>
+  <strong>Reps:</strong>
+  <%= @set_template_basis.reps %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @set_template_basis.weight %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @set_template_basis.type %>
+</p>
+
+<%= link_to 'Edit', edit_set_template_basis_path(@set_template_basis) %> |
+<%= link_to 'Back', set_template_bases_path %>

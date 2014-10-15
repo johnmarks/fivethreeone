@@ -1,0 +1,31 @@
+<h1>Listing set_template_bases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exercise</th>
+      <th>Reps</th>
+      <th>Weight</th>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @set_template_bases.each do |set_template_basis| %>
+      <tr>
+        <td><%= set_template_basis.exercise_id %></td>
+        <td><%= set_template_basis.reps %></td>
+        <td><%= set_template_basis.weight %></td>
+        <td><%= set_template_basis.type %></td>
+        <td><%= link_to 'Show', set_template_basis %></td>
+        <td><%= link_to 'Edit', edit_set_template_basis_path(set_template_basis) %></td>
+        <td><%= link_to 'Destroy', set_template_basis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Set template base', new_set_template_basis_path %>

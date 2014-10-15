@@ -1,0 +1,2 @@
+module SetTemplateBasesHelper
+end

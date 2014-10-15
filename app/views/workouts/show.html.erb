@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Program:</strong>
+  <%= @workout.program_id %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @workout.day %>
+</p>
+
+<p>
+  <strong>Set template base:</strong>
+  <%= @workout.set_template_base_id %>
+</p>
+
+<%= link_to 'Edit', edit_workout_path(@workout) %> |
+<%= link_to 'Back', workouts_path %>
