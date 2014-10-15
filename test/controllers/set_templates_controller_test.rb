@@ -21,7 +21,7 @@ class SetTemplatesControllerTest < ActionController::TestCase
       post :create, set_template: { exercise_id: @set_template.exercise_id, reps: @set_template.reps, type: @set_template.type, weight: @set_template.weight }
     end
 
-    assert_redirected_to set_template_path(assigns(:set_template))
+    assert_redirected_to basic_set_template_path(assigns(:set_template))
   end
 
   test "should show set_template" do
@@ -36,7 +36,7 @@ class SetTemplatesControllerTest < ActionController::TestCase
 
   test "should update set_template" do
     patch :update, id: @set_template, set_template: { exercise_id: @set_template.exercise_id, reps: @set_template.reps, type: @set_template.type, weight: @set_template.weight }
-    assert_redirected_to set_template_path(assigns(:set_template))
+    assert_redirected_to basic_set_template_path(assigns(:set_template))
   end
 
   test "should destroy set_template" do
