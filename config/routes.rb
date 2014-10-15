@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :basic_set_templates, controller: 'set_templates', type: BasicSetTemplate
   resources :exercises
   resources :programs
+
+  root "exercises#index"
 end
