@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SetTemplateBaseTest < ActiveSupport::TestCase
+class SetTemplateTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

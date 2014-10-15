@@ -1,13 +1,13 @@
-<%= form_for @set_template_base, :html => { :class => "form-horizontal set_template_base" } do |f| %>
+<%= form_for @set_template, :html => { :class => "form-horizontal set_template" } do |f| %>
 
-    <% if @set_template_base.errors.any? %>
+    <% if @set_template.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@set_template_base.errors.count, "error") %> prohibited this set_template_base from being saved:</h3>
+        <h3 class="panel-title"><%= pluralize(@set_template.errors.count, "error") %> prohibited this set_template from being saved:</h3>
       </div>
       <div class="panel-body">
         <ul>
-        <% @set_template_base.errors.full_messages.each do |msg| %>
+        <% @set_template.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
         </ul>
@@ -20,33 +20,33 @@
     <div class="controls">
       <%= f.text_field :exercise_id, :class => 'form-control' %>
     </div>
-    <%= error_span(@set_template_base[:exercise_id]) %>
+    <%= error_span(@set_template[:exercise_id]) %>
   </div>
   <div class="control-group">
     <%= f.label :reps, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :reps, :class => 'form-control' %>
     </div>
-    <%= error_span(@set_template_base[:reps]) %>
+    <%= error_span(@set_template[:reps]) %>
   </div>
   <div class="control-group">
     <%= f.label :weight, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :weight, :class => 'form-control' %>
     </div>
-    <%= error_span(@set_template_base[:weight]) %>
+    <%= error_span(@set_template[:weight]) %>
   </div>
   <div class="control-group">
     <%= f.label :type, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :type, :class => 'form-control' %>
     </div>
-    <%= error_span(@set_template_base[:type]) %>
+    <%= error_span(@set_template[:type]) %>
   </div>
 
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            set_template_bases_path, :class => 'btn btn-default' %>
+            set_templates_path, :class => 'btn btn-default' %>
 
 <% end %>

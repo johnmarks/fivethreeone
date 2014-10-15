@@ -1,25 +1,25 @@
-<%- model_class = SetTemplateBase -%>
+<%- model_class = SetTemplate -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:exercise_id) %>:</strong></dt>
-  <dd><%= @set_template_base.exercise_id %></dd>
+  <dd><%= @set_template.exercise_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:reps) %>:</strong></dt>
-  <dd><%= @set_template_base.reps %></dd>
+  <dd><%= @set_template.reps %></dd>
   <dt><strong><%= model_class.human_attribute_name(:weight) %>:</strong></dt>
-  <dd><%= @set_template_base.weight %></dd>
+  <dd><%= @set_template.weight %></dd>
   <dt><strong><%= model_class.human_attribute_name(:type) %>:</strong></dt>
-  <dd><%= @set_template_base.type %></dd>
+  <dd><%= @set_template.type %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              set_template_bases_path, :class => 'btn btn-default'  %>
+              set_templates_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_set_template_basis_path(@set_template_base), :class => 'btn btn-default' %>
+              edit_set_template_path(@set_template), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              set_template_basis_path(@set_template_base),
+              set_template_path(@set_template),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>

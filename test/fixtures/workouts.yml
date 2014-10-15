@@ -3,9 +3,9 @@
 one:
   program_id: 1
   day: 1
-  set_template_base_id: 1
+  set_template_id: 1
 
 two:
   program_id: 1
   day: 1
-  set_template_base_id: 1
+  set_template_id: 1

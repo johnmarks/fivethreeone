@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Workout -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Program:</strong>
-  <%= @workout.program_id %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:program_id) %>:</strong></dt>
+  <dd><%= @workout.program_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:day) %>:</strong></dt>
+  <dd><%= @workout.day %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:set_template_id) %>:</strong></dt>
+  <dd><%= @workout.set_template_id %></dd>
+</dl>
 
-<p>
-  <strong>Day:</strong>
-  <%= @workout.day %>
-</p>
-
-<p>
-  <strong>Set template base:</strong>
-  <%= @workout.set_template_base_id %>
-</p>
-
-<%= link_to 'Edit', edit_workout_path(@workout) %> |
-<%= link_to 'Back', workouts_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              workouts_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_workout_path(@workout), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              workout_path(@workout),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

@@ -4,10 +4,10 @@ one:
   exercise_id: 1
   reps: 1
   weight: 1
-  type: 
+  type: BasicSetTemplate
 
 two:
   exercise_id: 1
   reps: 1
   weight: 1
-  type: 
+  type: FiveThreeOneSetTemplate

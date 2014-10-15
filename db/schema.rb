@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20141015172659) do
     t.datetime "updated_at"
   end
 
-  create_table "set_template_bases", force: true do |t|
+  create_table "set_templates", force: true do |t|
     t.integer  "exercise_id"
     t.integer  "reps"
     t.integer  "weight"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20141015172659) do
   create_table "workouts", force: true do |t|
     t.integer  "program_id"
     t.integer  "day"
-    t.integer  "set_template_base_id"
+    t.integer  "set_template_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

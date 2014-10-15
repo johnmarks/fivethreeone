@@ -1,0 +1,2 @@
+class BasicSetTemplate < SetTemplate
+end

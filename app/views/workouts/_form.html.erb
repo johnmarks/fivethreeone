@@ -1,29 +1,45 @@
-<%= form_for(@workout) do |f| %>
-  <% if @workout.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+<%= form_for @workout, :html => { :class => "form-horizontal workout" } do |f| %>
 
-      <ul>
-      <% @workout.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @workout.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @workout.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :program_id %><br>
-    <%= f.number_field :program_id %>
+  <div class="control-group">
+    <%= f.label :program_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :program_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@workout[:program_id]) %>
   </div>
-  <div class="field">
-    <%= f.label :day %><br>
-    <%= f.number_field :day %>
+  <div class="control-group">
+    <%= f.label :day, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :day, :class => 'form-control' %>
+    </div>
+    <%= error_span(@workout[:day]) %>
   </div>
-  <div class="field">
-    <%= f.label :set_template_base_id %><br>
-    <%= f.number_field :set_template_base_id %>
+  <div class="control-group">
+    <%= f.label :set_template_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :set_template_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@workout[:set_template_id]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            workouts_path, :class => 'btn btn-default' %>
+
 <% end %>

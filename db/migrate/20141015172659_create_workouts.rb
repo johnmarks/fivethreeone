@@ -3,7 +3,7 @@ class CreateWorkouts < ActiveRecord::Migration
     create_table :workouts do |t|
       t.integer :program_id
       t.integer :day
-      t.integer :set_template_base_id
+      t.integer :set_template_id
 
       t.timestamps
     end

@@ -69,6 +69,6 @@ class WorkoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
-      params.require(:workout).permit(:program_id, :day, :set_template_base_id)
+      params.require(:workout).permit(:program_id, :day, :set_template_id)
     end
 end
