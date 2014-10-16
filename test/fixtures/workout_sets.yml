@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  set_template_id: 1
+  user_id: 1
+  finished: false
+  reps: 1
+  weight: 1
+
+two:
+  set_template_id: 1
+  user_id: 1
+  finished: false
+  reps: 1
+  weight: 1
