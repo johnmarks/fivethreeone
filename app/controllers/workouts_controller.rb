@@ -4,7 +4,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts
   # GET /workouts.json
   def index
-    @workouts = Workout.all
+    @workouts = Workout.order('day', 'created_at').preload({'set_template' => 'exercise'}, 'program')
   end
 
   # GET /workouts/1

@@ -5,22 +5,18 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:program_id) %></th>
       <th><%= model_class.human_attribute_name(:day) %></th>
       <th><%= model_class.human_attribute_name(:set_template_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @workouts.each do |workout| %>
       <tr>
-        <td><%= link_to workout.id, workout_path(workout) %></td>
-        <td><%= workout.program_id %></td>
+        <td><%= workout.program.name %></td>
         <td><%= workout.day %></td>
-        <td><%= workout.set_template_id %></td>
-        <td><%=l workout.created_at %></td>
+        <td><%= workout.set_template.to_s %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_workout_path(workout), :class => 'btn btn-default btn-xs' %>

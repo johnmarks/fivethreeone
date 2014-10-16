@@ -1,3 +1,7 @@
 class SetTemplate < ActiveRecord::Base
-	has_one :exercise
+	belongs_to :exercise
+
+  def to_s
+    "#{exercise.name}: reps #{reps} weight #{weight}"
+  end
 end

@@ -1,4 +1,4 @@
 class Workout < ActiveRecord::Base
 	belongs_to :program
-	has_one :set_template
+	belongs_to :set_template
 end
