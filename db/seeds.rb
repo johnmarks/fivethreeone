@@ -1,59 +1,27 @@
 program = Program.create! :name => 'Five Three One'
-day = 1
 
-exercises = ['Deadlift', 'Overhead Press', 'Squat', 'Bench Press']
-exercises = exercises.inject([]) do |inj, e|
+exercises = ['Deadlift', 'Overhead Press', 'Squat', 'Bench Press'].inject([]) do |inj, e|
 	inj << Exercise.create!(:name => e)
 end
 
-exercises.each do |e|
-  [5, 3, 1, -1].each do |i|
-    FiveThreeOneSetTemplate.create!  :reps => i, :exercise_id => e.id
+# Create the 16 days in 5/3/1
+exercises.each_with_index do |e, i|
+  data = [
+    {:reps => 5, :weight => 65}, {:reps => 5, :weight => 75}, {:reps => -1, :weight => 85},
+    {:reps => 3, :weight => 70}, {:reps => 3, :weight => 80}, {:reps => -1, :weight => 90},
+    {:reps => 5, :weight => 75}, {:reps => 3, :weight => 85}, {:reps => -1, :weight => 95},
+    {:reps => 5, :weight => 40}, {:reps => 5, :weight => 50}, {:reps => 5, :weight => 60},
+  ]
+  
+  data.each_with_index do |d, j|
+    st = FiveThreeOneSetTemplate.create! :exercise_id => e.id, :reps => d[:reps], :weight => d[:weight]
+    day = (i+1)+((j/3)*4)
+    program.workouts.create! :day => day, :set_template_id => st.id
   end
 end
 
-# Create the 5 days in 5/3/1
-exercises.each do |e|
-  set_template = SetTemplate.where(:exercise_id => e.id, :reps => 5).first
-  program.workouts.create! :day => day, :set_template_id => set_template.id
-  program.workouts.create! :day => day, :set_template_id => set_template.id
-  set_template = SetTemplate.where(:exercise_id => e.id, :reps => -1).first
-  program.workouts.create! :day => day, :set_template_id => set_template.id
-  day += 1
-end
-
-# Create the 3 days in 5/3/1
-exercises.each do |e|
-  set_template = SetTemplate.where(:exercise_id => e.id, :reps => 3).first
-  program.workouts.create! :day => day, :set_template_id => set_template.id
-  program.workouts.create! :day => day, :set_template_id => set_template.id
-  set_template = SetTemplate.where(:exercise_id => e.id, :reps => -1).first
-  program.workouts.create! :day => day, :set_template_id => set_template.id
-  day += 1
-end
-
-# create the 5/3/1 days in 5/3/1
-exercises.each do |e|
-  set_template = SetTemplate.where(:exercise_id => e.id, :reps => 5).first
-  program.workouts.create! :day => day, :set_template_id => set_template.id
-  set_template = SetTemplate.where(:exercise_id => e.id, :reps => 3).first
-  program.workouts.create! :day => day, :set_template_id => set_template.id
-  set_template = SetTemplate.where(:exercise_id => e.id, :reps => -1).first
-  program.workouts.create! :day => day, :set_template_id => set_template.id
-  day += 1
-end
-
-# create the deload days in 5/3/1
-exercises.each do |e|
-  set_template = SetTemplate.where(:exercise_id => e.id, :reps => 5).first
-  program.workouts.create! :day => day, :set_template_id => set_template.id
-  program.workouts.create! :day => day, :set_template_id => set_template.id
-  program.workouts.create! :day => day, :set_template_id => set_template.id
-  day += 1
-end
 
 user = User.create! :email => 'john@bluefroggaming.com', :password => 'mark1245', :password_confirmation => 'mark1245'
-
 
 ExerciseData.create! :user_id => user.id, :exercise_id => Exercise.find_by_name('Deadlift').id, :one_rep_max => 300
 ExerciseData.create! :user_id => user.id, :exercise_id => Exercise.find_by_name('Overhead Press').id, :one_rep_max => 140
