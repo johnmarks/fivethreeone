@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exercise_id: 1
+  one_rep_max: 1
+  lifts_without_increase: 1
+  personal_record: 1
+  user_id: 1
+
+two:
+  exercise_id: 1
+  one_rep_max: 1
+  lifts_without_increase: 1
+  personal_record: 1
+  user_id: 1

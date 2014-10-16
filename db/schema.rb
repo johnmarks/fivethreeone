@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141015210235) do
+ActiveRecord::Schema.define(version: 20141016143929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "exercise_data", force: true do |t|
+    t.integer  "exercise_id"
+    t.integer  "one_rep_max"
+    t.integer  "lifts_without_increase"
+    t.integer  "personal_record"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "exercises", force: true do |t|
     t.string   "name"
