@@ -23,8 +23,8 @@ end
 
 user = User.create! :email => 'john@bluefroggaming.com', :password => 'mark1245', :password_confirmation => 'mark1245'
 
-ExerciseData.create! :user_id => user.id, :exercise_id => Exercise.find_by_name('Deadlift').id, :one_rep_max => 300
-ExerciseData.create! :user_id => user.id, :exercise_id => Exercise.find_by_name('Overhead Press').id, :one_rep_max => 140
-ExerciseData.create! :user_id => user.id, :exercise_id => Exercise.find_by_name('Squat').id, :one_rep_max => 225
-ExerciseData.create! :user_id => user.id, :exercise_id => Exercise.find_by_name('Bench Press').id, :one_rep_max => 225
+ExerciseData.create! :user_id => user.id, :exercise_id => Exercise.find_by_name('Deadlift').id, :working_one_rep_max => 300
+ExerciseData.create! :user_id => user.id, :exercise_id => Exercise.find_by_name('Overhead Press').id, :working_one_rep_max => 140
+ExerciseData.create! :user_id => user.id, :exercise_id => Exercise.find_by_name('Squat').id, :working_one_rep_max => 225
+ExerciseData.create! :user_id => user.id, :exercise_id => Exercise.find_by_name('Bench Press').id, :working_one_rep_max => 225
   

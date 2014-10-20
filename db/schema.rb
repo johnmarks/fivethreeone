@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141016180535) do
   create_table "exercise_data", force: true do |t|
     t.integer  "exercise_id"
     t.integer  "one_rep_max"
+    t.integer  "working_one_rep_max"
     t.integer  "lifts_without_increase"
     t.integer  "personal_record"
     t.integer  "user_id"
@@ -66,7 +67,7 @@ ActiveRecord::Schema.define(version: 20141016180535) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "workout_sets", force: true do |t|
-    t.integer  "set_template_id"
+    t.integer  "workout_id"
     t.integer  "user_id"
     t.boolean  "finished"
     t.integer  "reps"

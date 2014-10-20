@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :exercises
   resources :programs
 
-  root "exercises#index"
+  root "working_sets#index"
 end
