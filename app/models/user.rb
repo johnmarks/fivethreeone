@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :exercise_datas
+  has_many :workout_sets
+
+  def current_workout
+    workout_sets.where(:finished => false)
+  end
 end

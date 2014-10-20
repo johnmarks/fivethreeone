@@ -1,5 +1,7 @@
 class WorkoutManager
   def self.create_workout_sets(user, program)
+    return user.current_workout if !user.current_workout.empty?
+
     templates = self.get_templates_for(program)
 
     templates.inject([]) do |inj, t|
