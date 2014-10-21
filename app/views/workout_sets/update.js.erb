@@ -1,1 +1,1 @@
-$('#test').html("<%= render :partial => 'notice', locals: {workout_set: @workout_set} %> ");
+$('#test').html("<%= escape_javascript(render :partial => 'notice', locals: {workout_set: @workout_set}) %>");
