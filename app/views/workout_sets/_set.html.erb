@@ -6,6 +6,7 @@
     <%= form.input_field :reps_completed %>
     <%= form.button :submit, "#{set.reps}+", class: set.button_class %>
   <% else %>
+    <%= form.input :reps_completed, as: :hidden, input_html: {value: "set.reps"} %>
     <%= form.button :submit, set.reps, class: set.button_class %>
   <% end %>
 
