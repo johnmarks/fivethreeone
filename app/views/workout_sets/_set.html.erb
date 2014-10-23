@@ -1,0 +1,12 @@
+<%= simple_form_for(set, html: {class: 'form-inline' }, :remote => true) do |form| %>
+  <%= form.label "#{set.exercise} #{set.weight} x" %>
+  <%= form.input :finished, :as => :hidden, :input_html => { :value => "true" } %>
+
+  <% if set.reps <= 0 %>
+    <%= form.input_field :reps_completed, :placeholder => "*", :size => 2 %>
+    <%= form.button :submit, "finish", :class => set.button_class %>
+  <% else %>
+    <%= form.button :submit, set.reps, :class => set.button_class %>
+  <% end %>
+<% end %>
+</br>

@@ -7,9 +7,6 @@ class WorkoutSetsController < ApplicationController
 
   def update
     @workout_set = WorkoutSet.find(params[:id])
-    respond_to do |format|
-      format.js
-    end
   end
 
 end

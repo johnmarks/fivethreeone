@@ -9,4 +9,8 @@ class WorkoutSet < ActiveRecord::Base
     workout.weight_for(user)
   end
 
+  def button_class
+    self.finished? ? 'btn-success' : 'btn-primary'
+  end
+
 end
