@@ -69,6 +69,6 @@ class SetTemplatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def set_template_params
-      params.require(:set_template).permit(:exercise_id, :reps, :weight, :type)
+      params.require(@set_template.class.to_s.underscore.to_sym).permit(:exercise_id, :reps, :weight, :type, :max_reps)
     end
 end

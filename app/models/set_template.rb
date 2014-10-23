@@ -4,8 +4,4 @@ class SetTemplate < ActiveRecord::Base
   def weight_for(user)
     weight
   end
-
-  def to_s
-    "#{exercise.name}: reps #{reps} weight #{weight}"
-  end
 end

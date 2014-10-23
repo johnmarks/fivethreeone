@@ -2,11 +2,12 @@
   <%= form.label "#{set.exercise} #{set.weight} x" %>
   <%= form.input :finished, :as => :hidden, :input_html => { :value => "true" } %>
 
-  <% if set.reps <= 0 %>
-    <%= form.input_field :reps_completed, :placeholder => "*", :size => 2 %>
-    <%= form.button :submit, "finish", :class => set.button_class %>
+  <% if set.max_reps %>
+    <%= form.input_field :reps_completed %>
+    <%= form.button :submit, "#{set.reps}+", class: set.button_class %>
   <% else %>
-    <%= form.button :submit, set.reps, :class => set.button_class %>
+    <%= form.button :submit, set.reps, class: set.button_class %>
   <% end %>
+
 <% end %>
 </br>

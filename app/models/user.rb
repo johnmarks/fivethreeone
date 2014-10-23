@@ -8,7 +8,14 @@ class User < ActiveRecord::Base
   has_many :workout_sets
 
   def current_workout
-    workout_sets.where(:finished => false)
+    unfinished = workout_sets.where(:finished => false)
+
+    return unfinished if unfinished.empty?
+
+    one = unfinished.first
+    partials = workout_sets.where(:date => one.date, :finished => true )
+
+    (partials + unfinished).sort_by(&:created_at)
   end
 
   def last_workout_day

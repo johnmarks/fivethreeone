@@ -1,1 +1,2 @@
-$('#test').html("<%= escape_javascript(render :partial => 'notice', locals: {workout_set: @workout_set}) %>");
+$('#set_<%= @workout_set.id %>').html("<%= escape_javascript(render partial: 'set', locals: {set: @workout_set}) %>");
+

@@ -7,7 +7,8 @@ class WorkoutManager
 
     templates.inject([]) do |inj, t|
       ws = WorkoutSet.create! :user_id => user.id, :finished => false, 
-                              :reps => t.reps, :weight => t.weight, :workout_id => t.id
+                              :reps => t.reps, :weight => t.weight, :workout_id => t.id,
+                              :date => Date.today
 
       inj << ws
     end

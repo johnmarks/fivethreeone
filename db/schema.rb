@@ -41,8 +41,9 @@ ActiveRecord::Schema.define(version: 20141016180535) do
 
   create_table "set_templates", force: true do |t|
     t.integer  "exercise_id"
-    t.integer  "reps"
-    t.integer  "weight"
+    t.integer  "reps",        default: 5
+    t.integer  "weight",      default: 45
+    t.boolean  "max_reps",    default: false
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -69,9 +70,11 @@ ActiveRecord::Schema.define(version: 20141016180535) do
   create_table "workout_sets", force: true do |t|
     t.integer  "workout_id"
     t.integer  "user_id"
-    t.boolean  "finished"
-    t.integer  "reps"
-    t.integer  "weight"
+    t.boolean  "finished",       default: false
+    t.integer  "reps",           default: 0
+    t.integer  "reps_completed", default: 0
+    t.integer  "weight",         default: 45
+    t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
