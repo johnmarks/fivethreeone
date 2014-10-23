@@ -2,7 +2,15 @@
 
 <% @workout_sets.each do |set| %>
   <%= simple_form_for(set, html: {class: 'form-inline' }, :remote => true) do |form| %>
-    <%= form.button :submit, set.to_s %>
+    <%= form.label "#{set.exercise} #{set.weight} x" %>
+
+    <% if set.reps <= 0 %>
+      <%= form.input_field :reps_completed, :placeholder => "*", :size => 2 %>
+      <%= form.button :submit, "finish" %>
+    <% else %>
+      <%= form.button :submit, set.reps %>
+    <% end %>
   <% end %>
+
   </br>
 <% end %>
