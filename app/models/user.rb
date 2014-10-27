@@ -23,6 +23,11 @@ class User < ActiveRecord::Base
     last_workout_day + 1
   end
 
+  def has_workouts(program)
+    ids = program.workouts.map(&:id)
+    workout_sets.where(workout_id: ids).count > 0
+  end
+
   def one_rep_max_for(exercise_id)
     exercise_datas.find(exercise_id).working_one_rep_max
   end

@@ -5,6 +5,9 @@ class WorkoutManager
     if current_day > 1
       return user.current_workout
     else
+      if user.has_workouts(program)
+        program.progress(user.exercise_datas)
+      end
       sets = self.create_workout_sets(user, program)
     end
 

@@ -5,6 +5,6 @@ class Program < ActiveRecord::Base
     workouts.empty? ? 0 : workouts.last.day
   end
 
-  def progress(user, exersize)
+  def progress(exercize_datas)
   end
 end
