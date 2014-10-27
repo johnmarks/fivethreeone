@@ -2,11 +2,12 @@ class WorkoutSetsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @workout_sets = WorkoutManager.create_workout_sets(current_user, Program.first)
+    @workout_sets = WorkoutManager.get_current_workout(current_user, Program.first)
   end
 
   def update
     @workout_set = WorkoutSet.find(params[:id])
+    @workout_set.date = Date.today
     @workout_set.update(workout_set_params)
   end
 

@@ -4,4 +4,7 @@ class Program < ActiveRecord::Base
   def days_in_workout
     workouts.empty? ? 0 : workouts.last.day
   end
+
+  def progress(user, exersize)
+  end
 end

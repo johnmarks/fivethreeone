@@ -1,4 +1,4 @@
-program = Program.create! name: 'Five Three One'
+program = Program.create! name: 'Five Three One', type: 'FiveThreeOneProgram'
 
 exercises = ['Deadlift', 'Overhead Press', 'Squat', 'Bench Press'].inject([]) do |inj, e|
 	inj << Exercise.create!(name: e)
