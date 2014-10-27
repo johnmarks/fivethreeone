@@ -1,5 +1,5 @@
 class WorkoutSetsController < ApplicationController
-  before_action :authenticate_user!
+  before_filter :check_for_setup
 
   def index
     @workout_sets = WorkoutManager.get_current_workout(current_user, Program.first)
@@ -15,6 +15,10 @@ class WorkoutSetsController < ApplicationController
 
   def workout_set_params
       params.require(:workout_set).permit(:finished, :reps, :reps_completed, :set_finished)
+  end
+  
+  def check_for_setup
+    redirect_to exercise_datas_url unless current_user.setup
   end
 
 end

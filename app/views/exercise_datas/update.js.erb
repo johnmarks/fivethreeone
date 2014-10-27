@@ -1,0 +1,1 @@
+$('#data_<%= @exercise_data.id %>').html("<%= escape_javascript(render partial: 'exercise_data', locals: {exercise_data: @exercise_data}) %>");

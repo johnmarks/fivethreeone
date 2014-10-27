@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :exercise_datas
   has_many :workout_sets
 
+  after_create :create_exercise_data
+
   def current_workout
     new_sets = workout_sets.where(:finished => false).select{|wo| wo.day == next_workout_day }
 
@@ -36,6 +38,13 @@ class User < ActiveRecord::Base
     e = exercise_datas.find(exercise_id)
     e.working_one_rep_max = new_max
     e.save!
+  end
+
+  private
+  def create_exercise_data
+    Exercise.all.each do |e|
+      ExerciseData.create! user_id: id, exercise_id: e.id, working_one_rep_max: 100, increment_ammount: 5
+    end
   end
 
 end
