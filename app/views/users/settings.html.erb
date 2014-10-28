@@ -1,0 +1,23 @@
+<%= simple_form_for(:user, url: settings_path, html: {class: 'form-inline' }) do |form| %>
+  <% @exercise_datas.each do |data| %>
+    <div class='row'>
+      <div class='col-md-6'>
+        <%= form.label data.exercise.name %>
+      </div>
+      <div class='col-md-6'>
+        <div class='col-md-6'>
+          <%= form.label 'Working One Rep Max' %>
+          <% puts '9834092183498**************************************************************' %>
+          <% puts data.working_one_rep_max %>
+          <%= form.input_field :"working_one_rep_max[#{data.id}]", value: data.working_one_rep_max %>
+        </div>
+        <div class='col-md-6'>
+          <%= form.label 'Increment' %>
+          <%= form.input_field :"increment_ammount[#{data.id}]", value: data.increment_ammount %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= form.button :submit, "update", class: 'btn-primary' %>
+<% end %>

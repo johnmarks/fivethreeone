@@ -7,6 +7,11 @@ class User < ActiveRecord::Base
 
   after_create :create_exercise_data
 
+  def setup_complete!
+    self.setup = true
+    self.save!
+  end
+
   def current_workout
     new_sets = workout_sets.where(:finished => false).select{|wo| wo.day == next_workout_day }
 

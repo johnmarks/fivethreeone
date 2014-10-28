@@ -1,9 +1,0 @@
-<% @exercise_datas.each do |data| %>
-  <div id='data_<%= data.id %>'>
-    <%= render partial: "exercise_data", locals: { exercise_data: data } %>
-  </div>
-<% end %>
-
-<% unless current_user.setup %>
-  <div><%= link_to "setup complete", setup_complete_path %></div>
-<% end %>

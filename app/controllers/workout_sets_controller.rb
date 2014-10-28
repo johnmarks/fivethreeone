@@ -18,7 +18,7 @@ class WorkoutSetsController < ApplicationController
   end
   
   def check_for_setup
-    redirect_to exercise_datas_url unless current_user.setup
+    redirect_to settings_url unless current_user.setup
   end
 
 end

@@ -1,9 +1,0 @@
-<%= simple_form_for(exercise_data, url: exercise_data_path(exercise_data), html: {class: 'form-inline' }, :remote => true) do |form| %>
-  <%= form.label "#{exercise_data.exercise.name} Working One Rep Max" %>
-  <%= form.input_field :working_one_rep_max %>
-  <%= form.label "Increment" %>
-  <%= form.input_field :increment_ammount %>
-
-  <%= form.button :submit, "update", class: 'btn-primary', id: "#{exercise_data.id}_submit" %>
-<% end %>
-</br>
