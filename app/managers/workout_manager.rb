@@ -1,23 +1,20 @@
 class WorkoutManager
   def self.get_current_workout(user, program)
-    current_day = self.next_workout_day(user, program)
-
-    if current_day > 1
-      return user.current_workout
-    else
-      if user.has_workouts(program)
-        program.progress(user.exercise_datas)
-      end
-      sets = self.create_workout_sets(user, program)
+    current_workout = user.current_workout
+    return current_workout unless current_workout.empty?
+    
+    if user.has_workouts(program)
+      program.progress(user.exercise_datas)
     end
+    
+    sets = self.create_workout_sets(user, program)
 
     sets.select{|s| s.day == 1}
   end
 
   def self.create_workout_sets(user, program)
-    program.workouts.inject([]) do |inj, t|
-      ws = WorkoutSet.create! user_id: user.id, finished: false, reps: t.reps, weight: t.weight, workout_id: t.id
-      inj << ws
+    program.workouts.map do |w|
+      WorkoutSet.create! user_id: user.id, finished: false, reps: w.reps, weight: w.weight, workout_id: w.id
     end
   end
 

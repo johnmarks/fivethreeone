@@ -26,10 +26,20 @@ exercises.each_with_index do |e, i|
 end
 
 
-user = User.create! email: 'john@bluefroggaming.com', password: 'mark1245', password_confirmation: 'mark1245'
+user = User.create email: 'john@bluefroggaming.com', password: 'mark1245', password_confirmation: 'mark1245'
+user.setup = true
+user.save!
 
-# ExerciseData.create! user_id: user.id, exercise_id: Exercise.find_by_name('Deadlift').id, working_one_rep_max: 300, increment_ammount: 10
-# ExerciseData.create! user_id: user.id, exercise_id: Exercise.find_by_name('Overhead Press').id, working_one_rep_max: 140, increment_ammount: 5
-# ExerciseData.create! user_id: user.id, exercise_id: Exercise.find_by_name('Squat').id, working_one_rep_max: 225, increment_ammount: 10
-# ExerciseData.create! user_id: user.id, exercise_id: Exercise.find_by_name('Bench Press').id, working_one_rep_max: 225, increment_ammount: 5
-  
+id =Exercise.find_by_name('Deadlift').id
+user.update_working_one_rep_max(id, 300)
+user.update_increment_ammount(id, 10)
+
+id =Exercise.find_by_name('Squat').id
+user.update_working_one_rep_max(id, 225)
+user.update_increment_ammount(id, 10)
+
+id =Exercise.find_by_name('Bench Press').id
+user.update_working_one_rep_max(id, 225)
+
+id =Exercise.find_by_name('Overhead Press').id
+user.update_working_one_rep_max(id, 140)

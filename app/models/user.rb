@@ -13,15 +13,19 @@ class User < ActiveRecord::Base
   end
 
   def current_workout
-    new_sets = workout_sets.where(:finished => false).select{|wo| wo.day == next_workout_day }
+    sets = workout_sets.where(:finished => false).preload(workout: {set_template: :exercise})
+    day = next_workout_day
 
-    finished_today = workout_sets.where(:date => Date.today, :finished => true )
+    new_sets = sets.select{|wo| wo.day == day }
 
-    (finished_today + new_sets).sort_by(&:created_at)
+    finished_today = workout_sets.where(:date => Date.today, :finished => true ).preload(workout: {set_template: :exercise})
+    the_rest = sets.select{|wo| wo.day == finished_today.last.day}
+
+    (finished_today + new_sets + the_rest).sort_by(&:created_at)
   end
 
   def last_workout_day
-    last_set = workout_sets.where(:finished => true).last
+    last_set = workout_sets.where("finished = ? and date != ?", true, Date.today).last
 
     last_set.nil? ? 0 : last_set.day
   end
@@ -36,12 +40,18 @@ class User < ActiveRecord::Base
   end
 
   def one_rep_max_for(exercise_id)
-    exercise_datas.find(exercise_id).working_one_rep_max
+    exercise_datas.find_by_exercise_id(exercise_id).working_one_rep_max
   end
 
   def update_working_one_rep_max(exercise_id, new_max)
-    e = exercise_datas.find(exercise_id)
+    e = exercise_datas.find_by_exercise_id(exercise_id)
     e.working_one_rep_max = new_max
+    e.save!
+  end
+
+  def update_increment_ammount(exercise_id, new_ammount)
+    e = exercise_datas.find_by_exercise_id(exercise_id)
+    e.increment_ammount = new_ammount
     e.save!
   end
 
