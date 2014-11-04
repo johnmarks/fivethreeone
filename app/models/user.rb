@@ -12,22 +12,10 @@ class User < ActiveRecord::Base
     self.save!
   end
 
-  def current_workout
-    sets = workout_sets.where(:finished => false).preload(workout: {set_template: :exercise})
-    day = next_workout_day
-
-    new_sets = sets.select{|wo| wo.day == day }
-
-    finished_today = workout_sets.where(:date => Date.today, :finished => true ).preload(workout: {set_template: :exercise})
-    
-    the_rest = []
-    the_rest = sets.select{|wo| wo.day == finished_today.last.day} unless finished_today.empty?
-
-    (finished_today + new_sets + the_rest).sort_by(&:created_at)
-  end
-
   def current_cycle
     set = workout_sets.where(finished: false).first
+    return [] unless set
+    
     sets = workout_sets.where(cycle: set.cycle).preload(workout: {set_template: :exercise})
   end
 

@@ -26,20 +26,18 @@ exercises.each_with_index do |e, i|
 end
 
 
-user = User.create email: 'john@bluefroggaming.com', password: 'mark1245', password_confirmation: 'mark1245'
-user.setup = true
-user.save!
+john = User.create email: 'john@bluefroggaming.com', password: 'mark1245', password_confirmation: 'mark1245'
+john.setup = true
+john.save!
 
-id =Exercise.find_by_name('Deadlift').id
-user.update_working_one_rep_max(id, 300)
-user.update_increment_ammount(id, 10)
+deadlift = Exercise.find_by_name('Deadlift')
+squat = Exercise.find_by_name('Squat')
+bench = Exercise.find_by_name('Bench Press')
+press = Exercise.find_by_name('Overhead Press')
 
-id =Exercise.find_by_name('Squat').id
-user.update_working_one_rep_max(id, 225)
-user.update_increment_ammount(id, 10)
-
-id =Exercise.find_by_name('Bench Press').id
-user.update_working_one_rep_max(id, 225)
-
-id =Exercise.find_by_name('Overhead Press').id
-user.update_working_one_rep_max(id, 140)
+john.update_working_one_rep_max(deadlift.id, 300)
+john.update_increment_ammount(deadlift.id, 10)
+john.update_working_one_rep_max(squat.id, 225)
+john.update_increment_ammount(squat.id, 10)
+john.update_working_one_rep_max(bench.id, 225)
+john.update_working_one_rep_max(press.id, 140)
