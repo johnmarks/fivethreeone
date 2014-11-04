@@ -2,7 +2,8 @@ class WorkoutSetsController < ApplicationController
   before_filter :check_for_setup
 
   def index
-    @workout_sets = WorkoutManager.get_current_workout(current_user, Program.first)
+    @workout_sets = WorkoutManager.get_current_cycle(current_user, Program.first)
+    @current_day = current_user.next_workout_day
   end
 
   def update

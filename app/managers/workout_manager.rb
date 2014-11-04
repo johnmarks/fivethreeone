@@ -1,20 +1,20 @@
 class WorkoutManager
-  def self.get_current_workout(user, program)
-    current_workout = user.current_workout
-    return current_workout unless current_workout.empty?
-    
+  def self.get_current_cycle(user, program)
+    current_cycle = user.current_cycle
+    return current_cycle unless current_cycle.empty?
+
     if user.has_workouts(program)
       program.progress(user.exercise_datas)
     end
-    
-    sets = self.create_workout_sets(user, program)
 
-    sets.select{|s| s.day == 1}
+    self.create_workout_sets(user, program)
   end
 
   def self.create_workout_sets(user, program)
+    cycle = user.next_cycle(program)
     program.workouts.map do |w|
-      WorkoutSet.create! user_id: user.id, finished: false, reps: w.reps, weight: w.weight, workout_id: w.id
+      WorkoutSet.create! user_id: user.id, finished: false, reps: w.reps, 
+                         weight: w.weight, workout_id: w.id, cycle: cycle
     end
   end
 

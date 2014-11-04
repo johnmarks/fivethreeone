@@ -7,6 +7,7 @@ class CreateWorkoutSets < ActiveRecord::Migration
       t.integer :reps, default: 0
       t.integer :reps_completed, default: 0
       t.integer :weight, default: 45
+      t.integer :cycle, default: 1
       t.date :date
 
       t.timestamps

@@ -26,6 +26,11 @@ class User < ActiveRecord::Base
     (finished_today + new_sets + the_rest).sort_by(&:created_at)
   end
 
+  def current_cycle
+    set = workout_sets.where(finished: false).first
+    sets = workout_sets.where(cycle: set.cycle).preload(workout: {set_template: :exercise})
+  end
+
   def last_workout_day
     last_set = workout_sets.where("finished = ? and date != ?", true, Date.today).last
 
@@ -39,6 +44,12 @@ class User < ActiveRecord::Base
   def has_workouts(program)
     ids = program.workouts.map(&:id)
     workout_sets.where(workout_id: ids).count > 0
+  end
+
+  def next_cycle(program)
+    return 1 unless has_workouts(program)
+    ids = program.workouts.map(&:id)
+    workout_sets.where(workout_id: ids).last.cycle + 1
   end
 
   def one_rep_max_for(exercise_id)

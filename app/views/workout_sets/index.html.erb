@@ -1,8 +1,26 @@
-<% @workout_sets.each do |set| %>
-  <div id='set_<%= set.id %>'>
-    <%= render partial: "set", locals: { set: set } %>
+<div class="container">
+  <ul class="nav nav-pills">
+    <% @workout_sets.group_by(&:day).sort_by(&:first).each do |day, set| %>
+      <li class='nav <%= day == @current_day ? "active" : "" %>'>
+        <a href="#<%= day %>" data-toggle="tab" ><%= day %></a>
+      </li>
+    <% end %>
+  </ul>
+  
+  <!-- Tab panes -->
+  <div class='tab-content'>
+    <% @workout_sets.group_by(&:day).sort_by(&:first).each do |day, set| %>
+      <div class='tab-pane fade <%= day == @current_day ? "in active" : "" %>' id='<%= day %>'>
+        <div class='panel panel-default'>
+          <div class='panel-body'>
+            <% set.each do |s| %>
+              <div id='set_<%= s.id %>'>
+                <%= render partial: "set", locals: { set: s } %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
-
-
-
+</div>
