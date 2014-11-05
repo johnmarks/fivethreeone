@@ -49,17 +49,29 @@ cycle = john.current_cycle
 cycle.each{|ws| ws.reps_completed = ws.reps}
 
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Bench Press'}.select{|wo| wo.reps == 5}.first.reps_completed = 10
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Bench Press'}.select{|wo| wo.reps == 5}.first.date = Date.parse('2014-08-22')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Deadlift'}.select{|wo| wo.reps == 5}.first.reps_completed = 12
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Deadlift'}.select{|wo| wo.reps == 5}.first.date = Date.parse('2014-08-27')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Press'}.select{|wo| wo.reps == 5}.first.reps_completed = 10
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Press'}.select{|wo| wo.reps == 5}.first.date = Date.parse('2014-08-27')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 5}.first.reps_completed = 8
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 5}.first.date = Date.parse('2014-08-22')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Bench Press'}.select{|wo| wo.reps == 3}.first.reps_completed = 7
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Bench Press'}.select{|wo| wo.reps == 3}.first.date = Date.parse('2014-09-05')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Deadlift'}.select{|wo| wo.reps == 3}.first.reps_completed = 7
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Deadlift'}.select{|wo| wo.reps == 3}.first.date = Date.parse('2014-09-08')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Press'}.select{|wo| wo.reps == 3}.first.reps_completed = 10
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Press'}.select{|wo| wo.reps == 3}.first.date = Date.parse('2014-09-12')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 3}.first.reps_completed = 7
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 3}.first.date = Date.parse('2014-09-03')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Bench Press'}.select{|wo| wo.reps == 1}.first.reps_completed = 6
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Bench Press'}.select{|wo| wo.reps == 1}.first.date = Date.parse('2014-09-15')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Deadlift'}.select{|wo| wo.reps == 1}.first.reps_completed = 9
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Deadlift'}.select{|wo| wo.reps == 1}.first.date = Date.parse('2014-09-17')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Press'}.select{|wo| wo.reps == 1}.first.reps_completed = 6
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Press'}.select{|wo| wo.reps == 1}.first.date = Date.parse('2014-09-17')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 1}.first.reps_completed = 5
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 1}.first.date = Date.parse('2014-09-12')
 
 cycle.each{|ws| ws.finished = true; ws.save!}
 
@@ -71,17 +83,29 @@ cycle = john.current_cycle
 cycle.each{|ws| ws.reps_completed = ws.reps}
 
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Bench Press'}.select{|wo| wo.reps == 5}.first.reps_completed = 6
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Bench Press'}.select{|wo| wo.reps == 5}.first.date = Date.parse('2014-10-08')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Deadlift'}.select{|wo| wo.reps == 5}.first.reps_completed = 10
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Deadlift'}.select{|wo| wo.reps == 5}.first.date = Date.parse('2014-10-01')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Press'}.select{|wo| wo.reps == 5}.first.reps_completed = 10
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Press'}.select{|wo| wo.reps == 5}.first.date = Date.parse('2014-10-06')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 5}.first.reps_completed = 7
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 5}.first.date = Date.parse('2014-10-06')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Bench Press'}.select{|wo| wo.reps == 3}.first.reps_completed = 5
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Bench Press'}.select{|wo| wo.reps == 3}.first.date = Date.parse('2014-10-17')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Deadlift'}.select{|wo| wo.reps == 3}.first.reps_completed = 8
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Deadlift'}.select{|wo| wo.reps == 3}.first.date = Date.parse('2014-10-10')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Press'}.select{|wo| wo.reps == 3}.first.reps_completed = 8
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Press'}.select{|wo| wo.reps == 3}.first.date = Date.parse('2014-10-13')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 3}.first.reps_completed = 4
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 3}.first.date = Date.parse('2014-10-15')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Bench Press'}.select{|wo| wo.reps == 1}.first.reps_completed = 4
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Bench Press'}.select{|wo| wo.reps == 1}.first.date = Date.parse('2014-10-31')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Deadlift'}.select{|wo| wo.reps == 1}.first.reps_completed = 6
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Deadlift'}.select{|wo| wo.reps == 1}.first.date = Date.parse('2014-10-20')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Press'}.select{|wo| wo.reps == 1}.first.reps_completed = 4
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Press'}.select{|wo| wo.reps == 1}.first.date = Date.parse('2014-10-27')
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 1}.first.reps_completed = 3
+cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 1}.first.date = Date.parse('2014-10-29')
 
 cycle.each{|ws| 
   ws.finished = true unless [15,16].include?(ws.day)  

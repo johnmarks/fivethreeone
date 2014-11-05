@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   
   get 'settings', to: "users#settings", as: :settings
   post 'settings', to: "users#update_settings", as: :update_settings
+  get 'charts', to: 'charts#index', as: :charts
   root "workout_sets#index"
 end
