@@ -4,8 +4,6 @@ class WorkoutSetsController < ApplicationController
   def index
     @workout_sets = WorkoutManager.get_current_cycle(current_user, Program.first)
     @current_day = current_user.next_workout_day
-    puts '18383929aaaaaaaaaaaaaaaaaa'
-    puts @current_day
   end
 
   def update
