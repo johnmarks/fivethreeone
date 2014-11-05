@@ -8,7 +8,7 @@ class WorkoutSetsController < ApplicationController
 
   def update
     @workout_set = WorkoutSet.find(params[:id])
-    @workout_set.date = Date.today
+    @workout_set.date = Date.today unless @workout_set.date
     @workout_set.update(workout_set_params)
   end
 
