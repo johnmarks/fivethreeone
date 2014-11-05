@@ -14,7 +14,7 @@ class WorkoutManager
     cycle = user.next_cycle(program)
     program.workouts.map do |w|
       WorkoutSet.create! user_id: user.id, finished: false, reps: w.reps, 
-                         weight: w.weight, workout_id: w.id, cycle: cycle
+                         weight: w.weight_for(user), workout_id: w.id, cycle: cycle
     end
   end
 

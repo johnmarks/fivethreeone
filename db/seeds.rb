@@ -84,7 +84,7 @@ cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Overhead Pres
 cycle.select{|wo| wo.max_reps == true}.select{|wo| wo.exercise == 'Squat'}.select{|wo| wo.reps == 1}.first.reps_completed = 3
 
 cycle.each{|ws| 
-  ws.finished = true unless [13,14,15,16].include?(ws.day)  
+  ws.finished = true unless [15,16].include?(ws.day)  
   ws.save!
 }
 

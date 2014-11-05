@@ -6,8 +6,9 @@ class WorkoutSet < ActiveRecord::Base
   delegate :exercise, :to => 'workout'
   delegate :max_reps, :to => 'workout'
 
-  def weight
-    workout.weight_for(user)
+  def estimated_one_rep_max
+    w = weight
+    (w * reps_completed * 0.0333 + w).round
   end
 
   def button_class
