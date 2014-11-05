@@ -12,6 +12,14 @@ class WorkoutSet < ActiveRecord::Base
   end
 
   def button_class
-    finished ? 'btn-success' : 'btn-primary'
+    if finished
+      if date == Date.today
+        'btn-success'
+      else
+        'btn-info'
+      end
+    else
+      'btn-primary'
+    end
   end
 end
