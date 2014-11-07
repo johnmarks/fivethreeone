@@ -20,7 +20,7 @@ class WorkoutManager
   end
 
   def self.get_max_workouts(user, exercise_name)
-    sets = user.workout_sets.all.preload(:workout => {set_template: :exercise}, :user => :exercise_datas)
+    sets = user.workout_sets.where(finished: true).preload(:workout => {set_template: :exercise}, :user => :exercise_datas)
     sets.select{|wo| wo.max_reps == true and wo.exercise == exercise_name}
   end
 
