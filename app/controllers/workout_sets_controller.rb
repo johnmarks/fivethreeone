@@ -2,8 +2,9 @@ class WorkoutSetsController < ApplicationController
   before_filter :check_for_setup
 
   def index
-    @workout_sets = WorkoutManager.get_current_cycle(current_user, Program.first)
-    @current_day = current_user.next_workout_day
+    @program = Program.first # TODO: users should be able to pick theier program
+    @workout_sets = WorkoutManager.get_current_cycle(current_user, @program)
+    @current_day = WorkoutManager.next_workout_day(current_user, @program)
   end
 
   def update
