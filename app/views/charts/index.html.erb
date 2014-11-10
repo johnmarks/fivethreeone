@@ -1,1 +1,35 @@
-<%= line_chart @data, min: 50 %>
+<div class='panel panel-default'>
+  <div class="panel-heading">
+    <h3 class="panel-title">Bench Press One Rep Max</h3>
+  </div>
+  <div class='panel-body'>
+    <%= line_chart @bench_data, min: 175 %>
+  </div>
+</div>
+
+<div class='panel panel-default'>
+  <div class="panel-heading">
+    <h3 class="panel-title">Deadlift One Rep Max</h3>
+  </div>
+  <div class='panel-body'>
+    <%= line_chart @deadlift_data, min: 200, colors: ["red"] %>
+  </div>
+</div>
+
+<div class='panel panel-default'>
+  <div class="panel-heading">
+    <h3 class="panel-title">Overhead Press One Rep Max</h3>
+  </div>
+  <div class='panel-body'>
+    <%= line_chart @press_data, min: 115,  colors: ["green"] %>
+  </div>
+</div>
+
+<div class='panel panel-default'>
+  <div class="panel-heading">
+    <h3 class="panel-title">Squat One Rep Max</h3>
+  </div>
+  <div class='panel-body'>
+    <%= line_chart @squat_data, min: 175,  colors: ["orange"] %>
+  </div>
+</div>
